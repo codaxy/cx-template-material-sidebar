@@ -5,7 +5,7 @@ import Controller from "./Controller";
 export default (
     <cx>
         <FlexRow controller={Controller} wrap spacing="large">
-            <h2 putInto="cards">Cards</h2>
+            <h2 putInto="header">Cards</h2>
             {
                 Array.from({length: 20}, (_, index) => {
                     return <cx>

@@ -1,7 +1,8 @@
 {
-  "name": "material-demo",
+  "name": "cx-template-material-sidebar",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "main": "app/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

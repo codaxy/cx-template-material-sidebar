@@ -10,7 +10,7 @@ export default class extends Controller {
             }
         });
 
-        this.addTrigger('load', ['$page.filter'], ::this.load, true)
+        this.addTrigger('load', ['$page.filter'], this.load.bind(this), true)
     }
 
     load() {

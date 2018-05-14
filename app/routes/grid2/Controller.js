@@ -5,7 +5,7 @@ export default class extends Controller {
         this.store.init('$page', {
             filter: {
                 page: 1,
-                pageSize: 20,
+                pageSize: 50,
                 pageCount: 10
             }
         });

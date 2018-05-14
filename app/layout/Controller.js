@@ -1,7 +1,10 @@
 import { Controller } from "cx/ui";
+import { Auth } from "../api/Auth";
 
 export default class extends Controller {
     onInit() {
+        Auth.registerStore(this.store);
+
         this.store.init("layout.aside.open", window.innerWidth >= 800);
 
         this.addTrigger("navigation", ["url"], () => {

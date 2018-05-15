@@ -1,5 +1,5 @@
-import { Link } from "cx/widgets";
-import { ContentPlaceholder } from "cx/ui";
+import {Link} from "cx/widgets";
+import {ContentPlaceholder} from "cx/ui";
 import Controller from "./Controller";
 
 export default (
@@ -8,28 +8,28 @@ export default (
             controller={Controller}
             class={{
                 layout: true,
-                nav: { bind: "layout.aside.open" }
+                nav: {bind: "layout.aside.open"}
             }}
         >
             <main class="main" onMouseDownCapture="onMainClick">
-                <ContentPlaceholder />
+                <ContentPlaceholder/>
             </main>
             <header class="header">
                 <i
                     class={{
                         hamburger: true,
-                        open: { bind: "layout.aside.open" }
+                        open: {bind: "layout.aside.open"}
                     }}
-                    onClick={(e, { store }) => {
+                    onClick={(e, {store}) => {
                         store.toggle("layout.aside.open");
                     }}
                 />
-                <ContentPlaceholder name="header" />
+                <ContentPlaceholder name="header"/>
             </header>
             <aside class="aside">
                 <h1>Material + Sidebar</h1>
                 <dl>
-                    <dt>Pages</dt>
+                    <dt>Layout</dt>
                     <dd>
                         <Link href="~/fit" url-bind="url">
                             Fit
@@ -45,6 +45,9 @@ export default (
                             Cards
                         </Link>
                     </dd>
+                </dl>
+                <dl>
+                    <dt>Pages</dt>
                     <dd>
                         <Link href="~/grid1" url-bind="url">
                             Grid1
@@ -57,7 +60,7 @@ export default (
                     </dd>
                 </dl>
                 <dl>
-                    <dt>Util</dt>
+                    <dt>Utility</dt>
                     <dd>
                         <Link href="~/toasts" url-bind="url" match="prefix">
                             Toasts

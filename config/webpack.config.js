@@ -30,7 +30,7 @@ module.exports = {
         ]
     },
     entry: {
-        vendor: ["cx-react", p("app/polyfill.js")],
+        vendor: ["cx-react"],
         app: [p("app/index.js")]
     },
     plugins: [

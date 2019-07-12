@@ -1,6 +1,6 @@
 module.exports = {
     cacheDirectory: true,
-    cacheIdentifier: "v1",
+    cacheIdentifier: "v2",
     presets: [
         [
             "cx-env",
@@ -14,6 +14,7 @@ module.exports = {
                 },
                 modules: false,
                 loose: true,
+                corejs: 3,
                 useBuiltIns: 'usage',
                 cx: {
                     imports: {

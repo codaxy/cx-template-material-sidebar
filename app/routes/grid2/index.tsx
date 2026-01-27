@@ -1,33 +1,56 @@
-import {FlexCol, FlexRow, Section, Grid, TextField, DateField, MonthField, Pagination, Select} from "cx/widgets";
+import { createModel } from "cx/data";
+import { FlexCol, FlexRow, Section, Grid, TextField, DateField, MonthField, Pagination, Select } from "cx/widgets";
 
 import Controller from "./Controller";
+
+interface GridPageModel {
+    $page: {
+        filter: {
+            search: string;
+            date: string;
+            fromDate: string;
+            toDate: string;
+            page: number;
+            pageSize: number;
+            pageCount: number;
+        };
+        data: Array<{
+            field1: string;
+            field2: number;
+            field3: number;
+            field4: number;
+        }>;
+    };
+}
+
+const m = createModel<GridPageModel>();
 
 export default (
     <cx>
         <h2 putInto="header">Grid</h2>
         <Section mod="card" style="height: 100%" bodyStyle="display: flex">
-            <FlexCol controller={Controller} style="flex: 1 1 0"  spacing="large">
+            <FlexCol controller={Controller} style="flex: 1 1 0" spacing="large">
                 <FlexRow spacing>
                     <TextField
                         placeholder="Search..."
-                        value-bind="$page.filter.search"
+                        value={m.$page.filter.search}
                         showClear
                     />
                     <DateField
                         placeholder="Date"
-                        value-bind="$page.filter.date"
+                        value={m.$page.filter.date}
                     />
                     <MonthField
                         placeholder="Period"
                         range
-                        from-bind="$page.filter.fromDate"
-                        to-bind="$page.filter.toDate"
+                        from={m.$page.filter.fromDate}
+                        to={m.$page.filter.toDate}
                     />
                 </FlexRow>
                 <Grid
                     style="flex: 1 1 0;"
                     scrollable
-                    records-bind="$page.data"
+                    records={m.$page.data}
                     columns={[{
                         header: 'Column1',
                         field: 'field1',
@@ -54,16 +77,16 @@ export default (
                     emptyText="No data to show"
                 />
                 <FlexRow align="center">
-                    <Pagination page-bind="$page.filter.page" pageCount-bind="$page.filter.pageCount"/>
-                    <Select value-bind="$page.filter.pageSize" style="margin-left: auto; width: 50px">
+                    <Pagination page={m.$page.filter.page} pageCount={m.$page.filter.pageCount} />
+                    <Select value={m.$page.filter.pageSize} style="margin-left: auto; width: 50px">
                         <option value={5}>5</option>
                         <option value={10}>10</option>
                         <option value={20}>20</option>
                         <option value={50}>50</option>
                     </Select>
                     <span>
-                    records per page
-                </span>
+                        records per page
+                    </span>
                 </FlexRow>
             </FlexCol>
         </Section>

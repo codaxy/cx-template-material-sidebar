@@ -1,11 +1,11 @@
-import {Section, PureContainer, Button} from "cx/widgets";
+import { Section, PureContainer, Button } from "cx/widgets";
 
 import Controller from "./Controller";
 
 export default (
     <cx>
         <PureContainer controller={Controller}>
-            <h2 putInto="header">Fit</h2>
+            <h2 putInto="header">Toasts</h2>
             <Section mod="card" style="height: 100%" ws>
                 <Button
                     mod="danger"

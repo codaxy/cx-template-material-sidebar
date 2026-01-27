@@ -1,6 +1,6 @@
-import {Toast} from "cx/widgets";
+import { Toast } from "cx/widgets";
 
-export function showErrorToast(msg) {
+export function showErrorToast(msg: unknown) {
     Toast
         .create({
             message: String(msg),
@@ -10,7 +10,7 @@ export function showErrorToast(msg) {
         .open();
 }
 
-export function showInfoToast(msg) {
+export function showInfoToast(msg: unknown) {
     Toast
         .create({
             message: String(msg),

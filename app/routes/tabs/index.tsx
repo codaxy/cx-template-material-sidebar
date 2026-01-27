@@ -1,6 +1,16 @@
-import {Section, Tab, PureContainer} from "cx/widgets";
+import { createModel } from "cx/data";
+import { Section, Tab, PureContainer } from "cx/widgets";
+import { expr } from "cx/ui";
 
 import Controller from "./Controller";
+
+interface TabsPageModel {
+    $page: {
+        tab: string;
+    };
+}
+
+const m = createModel<TabsPageModel>();
 
 export default (
     <cx>
@@ -8,18 +18,18 @@ export default (
             <h2 putInto="header">Tabs</h2>
             <Section mod="card" style="height: 100%" pad={false}>
                 <div style="line-height: 0">
-                    <Tab mod="line" value-bind="$page.tab" tab="tab1" default>Tab1</Tab>
-                    <Tab mod="line" value-bind="$page.tab" tab="tab2">Tab2</Tab>
-                    <Tab mod="line" value-bind="$page.tab" tab="tab3">Tab3</Tab>
+                    <Tab mod="line" value={m.$page.tab} tab="tab1" default>Tab1</Tab>
+                    <Tab mod="line" value={m.$page.tab} tab="tab2">Tab2</Tab>
+                    <Tab mod="line" value={m.$page.tab} tab="tab3">Tab3</Tab>
                 </div>
                 <div style="padding: 1rem; border-top: 1px solid lightgray; margin-top: -1px">
-                    <div visible-expr="{$page.tab} == 'tab1'">
+                    <div visible={expr(m.$page.tab, tab => tab === 'tab1')}>
                         <p>Content for the first tab.</p>
                     </div>
-                    <div visible-expr="{$page.tab} == 'tab2'">
+                    <div visible={expr(m.$page.tab, tab => tab === 'tab2')}>
                         <p>Content for the second tab.</p>
                     </div>
-                    <div visible-expr="{$page.tab} == 'tab3'">
+                    <div visible={expr(m.$page.tab, tab => tab === 'tab3')}>
                         <p>Content for the third tab.</p>
                     </div>
                 </div>

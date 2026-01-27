@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:new.cxjs.io)",
+      "Bash(timeout 5 npm run dev:*)",
+      "Bash(npm run build:*)"
+    ]
+  }
+}
